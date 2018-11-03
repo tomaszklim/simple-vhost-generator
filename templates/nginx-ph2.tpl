@@ -1,7 +1,7 @@
 server {
 	listen 443 ssl;
 	listen [::]:443 ssl ipv6only=on;
-	server_name @HOST;
+	server_name @HOST www.@HOST;
 
 	ssl_certificate /etc/letsencrypt/live/@HOST/fullchain.pem; # managed by Certbot
 	ssl_certificate_key /etc/letsencrypt/live/@HOST/privkey.pem; # managed by Certbot

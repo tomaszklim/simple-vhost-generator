@@ -21,7 +21,7 @@ if [ ! -f /etc/nginx/sites-enabled/$host ]; then
 	cat templates/nginx-ph1.tpl |sed "s/@HOST/$host/g" >/etc/nginx/sites-available/$host
 	ln -s /etc/nginx/sites-available/$host /etc/nginx/sites-enabled/$host
 	/etc/init.d/nginx reload
-	certbot -d $host
+	certbot -d $host -d www.$host
 fi
 
 cat templates/nginx-ph2.tpl |sed "s/@HOST/$host/g" >/etc/nginx/sites-available/$host
