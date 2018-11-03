@@ -29,5 +29,7 @@ if [ ! -d /etc/letsencrypt/live/$host ]; then
 	certbot -d $host -d www.$host
 fi
 
-cat templates/nginx-ph2.tpl |sed "s/@HOST/$host/g" >/etc/nginx/sites-available/$host
-/etc/init.d/nginx reload
+if [ -d /etc/letsencrypt/live/$host ]; then
+	cat templates/nginx-ph2.tpl |sed "s/@HOST/$host/g" >/etc/nginx/sites-available/$host
+	/etc/init.d/nginx reload
+fi

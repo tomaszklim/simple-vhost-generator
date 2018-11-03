@@ -1,6 +1,6 @@
 <VirtualHost *:81>
 	ServerName @HOST
-	ServerAlias www.@HOST
+	ServerAlias *.@HOST
 	DocumentRoot /var/www/@HOST
 
 	ErrorLog ${APACHE_LOG_DIR}/error-@HOST.log
