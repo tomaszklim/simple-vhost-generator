@@ -3,6 +3,9 @@ server {
 	listen [::]:80;
 	server_name @HOST www.@HOST;
 
+	access_log /var/log/nginx/access-@HOST.log;
+	error_log /var/log/nginx/error-@HOST.log;
+
 	location / {
 		proxy_pass              http://127.0.0.1:81;
 		proxy_set_header        Host $host;
